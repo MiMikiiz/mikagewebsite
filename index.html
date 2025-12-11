@@ -3,45 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>私のWebページ</title>
+  <title>Mikage Aya | NEC所属のページ</title>
   <style>
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
       min-height: 100vh;
-      background: #f0f4f8;
+      background: #f5f4f2;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     main {
-      padding: 2rem;
-      border-radius: 1rem;
-      background: white;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
-      max-width: 600px;
-      text-align: center;
+      padding: 3rem;
+      border-radius: 1.5rem;
+      background: linear-gradient(180deg, #ffffff 0%, #fdf7f0 100%);
+      box-shadow: 0 20px 45px rgba(30, 41, 59, 0.25);
+      max-width: 720px;
+      text-align: left;
     }
     h1 {
       margin-top: 0;
-      color: #0f172a;
+      margin-bottom: 0.5rem;
+      color: #111827;
+      font-size: 2.3rem;
+    }
+    h2 {
+      margin-bottom: 0.25rem;
+      color: #1f2937;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
     }
     p {
-      color: #334155;
-      line-height: 1.5;
+      color: #374151;
+      line-height: 1.7;
+      margin-bottom: 1rem;
     }
-    .meta {
+    .section {
       margin-top: 1.5rem;
-      font-size: 0.9rem;
-      color: #64748b;
+    }
+    .label {
+      font-weight: bold;
+      color: #0f172a;
+    }
+    .lead {
+      margin-bottom: 1.5rem;
+      font-size: 1.15rem;
+      color: #1f2937;
+    }
+    .tag-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: #e5e7eb;
+      color: #1f2937;
+      font-size: 0.85rem;
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>Welcome to My GitHub Pages Site</h1>
-    <p>このサイトは、シンプルな静的ページとして GitHub Pages で公開しています。ここには、プロジェクトや作品、ブログなどを自由に紹介できます。</p>
-    <p class="meta">最新更新: 2024年</p>
+    <h2>Personal Profile</h2>
+    <h1>Mikage Aya</h1>
+    <p class="lead">NEC所属のプロフェッショナルとして、静粛な落ち着きと洗練された感性を大切にしながら、日々の一歩を積み重ねています。</p>
+
+    <div class="section">
+      <p class="label">所属</p>
+      <p>NEC（日本電気株式会社）での経験を通じ、技術とデザインの交差点にある課題に取り組んでいます。</p>
+    </div>
+
+    <div class="section">
+      <p class="label">クリエイティブな側面</p>
+      <p>ベースとなるスタイルはフォーマルながら、柔らかくおしゃれな印象を心掛けています。服の選び方ひとつにも品格が宿ると考え、日常の中から新しい表情を見つけ出すことが好きです。</p>
+    </div>
+
+    <div class="section">
+      <p class="label">趣味・関心</p>
+      <ul class="tag-list">
+        <li class="tag">服</li>
+        <li class="tag">ゲーム</li>
+        <li class="tag">絵画</li>
+      </ul>
+      <p>それぞれの趣味から得られる感覚を、仕事や生活の中で折り合わせ、バランスの取れた視点で新しい表現を試しています。</p>
+    </div>
+
+    <div class="section">
+      <p class="label">更新</p>
+      <p>このページは、シンプルながらも品のある自己紹介として定期的に見直しています。次の更新の際には、最新の取り組みや気になる展望も加えていく予定です。</p>
+    </div>
   </main>
 </body>
 </html>
