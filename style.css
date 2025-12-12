@@ -43,6 +43,28 @@ main {
   border: 1px solid rgba(89, 255, 150, 0.25);
 }
 
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+}
+
+.site-nav a {
+  color: rgba(225, 255, 238, 0.8);
+  text-decoration: none;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.site-nav a:hover {
+  border-color: #5ef1c0;
+}
+
 h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -81,6 +103,119 @@ p {
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
   color: var(--text-primary);
+}
+
+.game-panel {
+  margin-bottom: 2rem;
+}
+
+.game-wrapper {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto 0.75rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(12, 63, 24, 0.55);
+  border: 1px solid rgba(89, 255, 150, 0.35);
+}
+
+#flappy-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #010409;
+  cursor: none;
+}
+
+.game-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+  pointer-events: none;
+}
+
+.scoreboard {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-green);
+  text-shadow: 0 0 8px rgba(89, 255, 150, 0.9);
+}
+
+.game-message {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(225, 255, 238, 0.9);
+}
+
+.p5-panel {
+  border-top: 1px solid rgba(89, 255, 150, 0.2);
+  padding-top: 2rem;
+  margin-top: 0.5rem;
+}
+
+.p5-wrapper {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto 0.75rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(89, 255, 150, 0.4);
+  background: rgba(2, 6, 9, 0.8);
+  box-shadow: inset 0 0 25px rgba(89, 255, 150, 0.2);
+}
+
+#p5-container {
+  width: 100%;
+}
+
+.p5-caption {
+  margin: 0;
+  padding: 0 1rem 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(225, 255, 238, 0.8);
+  text-align: center;
+}
+
+.three-panel {
+  border-top: 1px solid rgba(89, 255, 150, 0.2);
+  padding-top: 2rem;
+  margin-top: 1rem;
+}
+
+.three-wrapper {
+  position: relative;
+  max-width: 520px;
+  width: min(520px, 100%);
+  margin: 0 auto 0.75rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(89, 255, 150, 0.45);
+  background: rgba(1, 4, 9, 0.95);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7);
+}
+
+#three-container canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.three-caption {
+  margin: 0;
+  padding: 0 1rem 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(225, 255, 238, 0.7);
+  text-align: center;
 }
 
 .tag-list {
