@@ -70,6 +70,30 @@ p {
   color: var(--text-primary);
 }
 
+.typing-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+  display: inline-block;
+  min-height: 1.4em;
+  border-right: 2px solid var(--accent-gold);
+  padding-right: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blink-cursor 1.2s steps(2) infinite;
+}
+
+@keyframes blink-cursor {
+  0%,
+  100% {
+    border-color: var(--accent-gold);
+  }
+  70% {
+    border-color: transparent;
+  }
+}
+
 .tag-list {
   list-style: none;
   padding: 0;

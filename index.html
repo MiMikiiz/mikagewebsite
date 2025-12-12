@@ -10,6 +10,7 @@
   <main>
     <h2>Personal Profile</h2>
     <h1>Mikage Aya</h1>
+    <p class="typing-text" data-phrases="技術と感性を結ぶ架け橋でいたい。|静かな自信で未来の形を描く。|細部を慈しみながら、日々の歩みを積み重ねる。"></p>
     <p class="lead">NEC所属のプロフェッショナルとして、静粛な落ち着きと洗練された感性を大切にしながら、日々の一歩を積み重ねています。</p>
 
     <div class="section">
@@ -37,5 +38,52 @@
       <p>このページは、シンプルながらも品のある自己紹介として定期的に見直しています。次の更新の際には、最新の取り組みや気になる展望も加えていく予定です。</p>
     </div>
   </main>
+  <script>
+    (function () {
+      const el = document.querySelector(".typing-text");
+      if (!el) return;
+      const phrases = (el.dataset.phrases || "")
+        .split("|")
+        .map((phrase) => phrase.trim())
+        .filter(Boolean);
+      if (!phrases.length) return;
+
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      const typingSpeed = 90;
+      const pauseDelay = 1400;
+
+      function tick() {
+        const phrase = phrases[phraseIndex % phrases.length];
+        const isComplete = charIndex === phrase.length;
+        const isEmpty = charIndex === 0;
+
+        if (isDeleting) {
+          charIndex = Math.max(0, charIndex - 1);
+        } else {
+          charIndex = Math.min(phrase.length, charIndex + 1);
+        }
+
+        el.textContent = phrase.slice(0, charIndex);
+
+        let delay = typingSpeed;
+        if (!isDeleting && isComplete) {
+          delay = pauseDelay;
+          isDeleting = true;
+        } else if (isDeleting && isEmpty) {
+          isDeleting = false;
+          phraseIndex++;
+          delay = typingSpeed;
+        } else if (isDeleting) {
+          delay = typingSpeed / 2;
+        }
+
+        setTimeout(tick, delay);
+      }
+
+      tick();
+    })();
+  </script>
 </body>
 </html>
