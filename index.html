@@ -7,10 +7,10 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
   <main>
     <h2>Personal Profile</h2>
     <h1>Mikage Aya</h1>
-    <p class="typing-text" data-phrases="技術と感性を結ぶ架け橋でいたい。|静かな自信で未来の形を描く。|細部を慈しみながら、日々の歩みを積み重ねる。"></p>
     <p class="lead">NEC所属のプロフェッショナルとして、静粛な落ち着きと洗練された感性を大切にしながら、日々の一歩を積み重ねています。</p>
 
     <div class="section">
@@ -40,49 +40,44 @@
   </main>
   <script>
     (function () {
-      const el = document.querySelector(".typing-text");
-      if (!el) return;
-      const phrases = (el.dataset.phrases || "")
-        .split("|")
-        .map((phrase) => phrase.trim())
-        .filter(Boolean);
-      if (!phrases.length) return;
+      const canvas = document.getElementById("matrix-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      const letters = "0123456789";
 
-      let phraseIndex = 0;
-      let charIndex = 0;
-      let isDeleting = false;
-      const typingSpeed = 90;
-      const pauseDelay = 1400;
+      let columns = [];
 
-      function tick() {
-        const phrase = phrases[phraseIndex % phrases.length];
-        const isComplete = charIndex === phrase.length;
-        const isEmpty = charIndex === 0;
-
-        if (isDeleting) {
-          charIndex = Math.max(0, charIndex - 1);
-        } else {
-          charIndex = Math.min(phrase.length, charIndex + 1);
-        }
-
-        el.textContent = phrase.slice(0, charIndex);
-
-        let delay = typingSpeed;
-        if (!isDeleting && isComplete) {
-          delay = pauseDelay;
-          isDeleting = true;
-        } else if (isDeleting && isEmpty) {
-          isDeleting = false;
-          phraseIndex++;
-          delay = typingSpeed;
-        } else if (isDeleting) {
-          delay = typingSpeed / 2;
-        }
-
-        setTimeout(tick, delay);
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const columnCount = Math.floor(canvas.width / 18);
+        columns = new Array(columnCount).fill(0);
       }
 
-      tick();
+      function draw() {
+        ctx.fillStyle = "rgba(0, 8, 8, 0.16)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#75ff99";
+        ctx.font = "18px Monaco, 'Courier New', monospace";
+
+        columns.forEach((y, index) => {
+          const x = index * 18;
+          const text = letters.charAt(Math.floor(Math.random() * letters.length));
+          ctx.fillText(text, x, y);
+
+          if (y > canvas.height && Math.random() > 0.975) {
+            columns[index] = 0;
+          } else {
+            columns[index] = y + 20;
+          }
+        });
+
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener("resize", resizeCanvas);
+      resizeCanvas();
+      draw();
     })();
   </script>
 </body>
