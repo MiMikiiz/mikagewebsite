@@ -22,12 +22,9 @@ body {
     radial-gradient(circle at 80% 0%, rgba(0, 145, 234, 0.2), transparent 45%),
     #fddb92;
   color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  padding: 2rem 1rem 3rem;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body::before {
