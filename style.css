@@ -68,6 +68,38 @@ main {
   text-transform: uppercase;
 }
 
+.site-attributes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.site-attributes span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.8rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.75);
+  color: #101828;
+  font-size: 0.8rem;
+  box-shadow: 0 10px 20px rgba(16, 24, 40, 0.25);
+}
+
+.site-attributes strong {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(16, 24, 40, 0.9);
+}
+
+.site-attributes span span {
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: none;
+}
+
 .site-nav a {
   color: #101828;
   text-decoration: none;
